@@ -1,3 +1,6 @@
+# studying
+# working_in_progress
+
 # semana-omni-stack
 Semana Omni Stack 11 - Rocketseat
 
