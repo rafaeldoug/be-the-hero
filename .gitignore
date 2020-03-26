@@ -1,2 +1,3 @@
 *.code-workspace
-.vscode
+.vscode/
+be_the_hero_db Session.sql
