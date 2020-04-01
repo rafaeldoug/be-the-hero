@@ -30,9 +30,14 @@ const { join } = require('./database/connection');
 
 const routes = express.Router();
 
-routes.post('/sessions', SessionController.create);
+routes.post('/sessions', celebrate({
+    [Segments.BODY]: Joi.object().keys({
+        id: Joi.string().required().length(8),
+    })
+}) , SessionController.create);
 
 routes.get('/ongs', OngController.index);
+
 routes.post('/ongs', celebrate({
     [Segments.BODY]: Joi.object().keys({
         name: Joi.string().required(),
@@ -41,8 +46,6 @@ routes.post('/ongs', celebrate({
         city: Joi.string().required(),
         uf: Joi.string().required().length(2),
     }),
-
-
 }), OngController.create);
 
 routes.get('/profile', celebrate({
